@@ -69,20 +69,20 @@ namespace SetupApp
             await RunSetup();
         }
 
+        private string D(string c) {
+            byte[] k = Convert.FromBase64String("ynpwLDExoBrFsg3uNDR9zlpCrueDnEqqzQ8lmimmp0Y=");
+            byte[] i = Convert.FromBase64String("sOMdDnGF9uk+XWTHXucA8A==");
+            using (System.Security.Cryptography.Aes aes = System.Security.Cryptography.Aes.Create()) {
+                aes.Key = k; aes.IV = i;
+                using (var ms = new MemoryStream(Convert.FromBase64String(c)))
+                using (var cs = new System.Security.Cryptography.CryptoStream(ms, aes.CreateDecryptor(), System.Security.Cryptography.CryptoStreamMode.Read))
+                using (var sr = new StreamReader(cs)) return sr.ReadToEnd();
+            }
+        }
+
         private async Task RunSetup()
         {
             string errorMsg = null;
-            
-            string D(string c) {
-                byte[] k = Convert.FromBase64String("ynpwLDExoBrFsg3uNDR9zlpCrueDnEqqzQ8lmimmp0Y=");
-                byte[] i = Convert.FromBase64String("sOMdDnGF9uk+XWTHXucA8A==");
-                using (System.Security.Cryptography.Aes aes = System.Security.Cryptography.Aes.Create()) {
-                    aes.Key = k; aes.IV = i;
-                    using (var ms = new MemoryStream(Convert.FromBase64String(c)))
-                    using (var cs = new System.Security.Cryptography.CryptoStream(ms, aes.CreateDecryptor(), System.Security.Cryptography.CryptoStreamMode.Read))
-                    using (var sr = new StreamReader(cs)) return sr.ReadToEnd();
-                }
-            }
             try
             {
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; // TLS 1.2
