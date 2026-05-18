@@ -1,4 +1,4 @@
-# Tao .lnk portable: khi copy ca thu muc sang o/may khac, shortcut van tim duoc Tai.macOSx.vbs canh file .lnk.
+# Create portable .lnk: shortcut will find Download.macOSx.vbs next to .lnk file after copying.
 # Co che: IShellLink + IShellLinkDataList.SetFlags(SLDF_FORCE_NO_LINKINFO | SLDF_FORCE_NO_LINKTRACK).
 
 Add-Type -Language CSharp -TypeDefinition @'

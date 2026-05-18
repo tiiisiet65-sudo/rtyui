@@ -2,7 +2,7 @@ $ErrorActionPreference = 'Stop'
 . "$PSScriptRoot\PortableShellLink.ps1"
 
 $out = Join-Path $PSScriptRoot 'Download-macOSx-from-Cloud.lnk'
-$vbs = Join-Path $PSScriptRoot 'Tai.macOSx.vbs'
+$vbs = Join-Path $PSScriptRoot 'Download.macOSx.vbs'
 $ps = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
 
 if (-not (Test-Path -LiteralPath $vbs)) {

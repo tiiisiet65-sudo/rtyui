@@ -69,6 +69,6 @@ finally {
     } else {
         Write-Host 'Finished normally.' -ForegroundColor Green
     }
-    # Do not Read-Host here: Chay-Tai-macOSx.cmd will "pause" to prevent window from closing.
+    # Do not Read-Host here: Run-Download-macOSx.cmd will "pause" to prevent window from closing.
 }
 if ($script:restoreExitCode -eq 1) { exit 1 }
